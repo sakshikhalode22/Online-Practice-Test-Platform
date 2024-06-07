@@ -52,9 +52,15 @@ const Authenticate = () => {
 
   console.log(buttonClicked,googleLogin)
 
+
+
   const handleGoogleLogin = () => {
     dispatch({type: "GOOGLELOGIN", payload: true})
     dispatch({type: "BUTTONCLICKED", payload: true})
+    window.open(
+      "http://localhost:5000/auth/google/callback",
+      "_self"
+    )
   };
 
   const handleEmailLogin = () => {
