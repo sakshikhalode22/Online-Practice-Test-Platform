@@ -16,6 +16,7 @@ app.use(
     origin: "http://localhost:3000",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
+    origin: true,
   })
 );
 app.use(bodyparser.json());
@@ -24,6 +25,7 @@ app.use("/", route);
 
 const clientId = "YOUR GOOGLE CLIENT ID";
 const clientSecret = "YOUR GOOGLE CLIENT SECRET";
+
 
 //setup session
 app.use(
@@ -90,6 +92,21 @@ app.get(
     failureRedirect: "http://localhost:3000/login",
   })
 );
+
+app.get('/login/success',async(req, res)=>{
+  if(req.user){
+    res.status(200).json({message: "user authenticated",user:req.user})
+  }else{
+    res.status(401).json({message: "user not authenticated"})
+  }
+});
+
+app.get('/logout',(req, res,next)=>{
+  req.logout(function(err){
+    if(err){return next(err)}
+    res.redirect('http://localhost:3000/login');
+  })
+})
 
 
 app.listen(port, () => {
