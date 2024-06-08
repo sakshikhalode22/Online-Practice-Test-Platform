@@ -4,12 +4,12 @@ import axios from 'axios';
 function Dashboard() {
   const [userData,setUserData]=useState({});
 
-  const getUser =() =>{
+  const getUser =async() =>{
     try{
-      axios.get('http://localhost:5000/login/success', {withCredentials:true})
+      await axios.get('http://localhost:5000/login/success', {withCredentials:true})
       .then((res)=>{
         console.log(res);
-        setUserData(res.data);
+        setUserData(res.data.user);
       })
     }
     catch(error){
@@ -22,7 +22,7 @@ function Dashboard() {
 
   return (
     <div>
-      Dashboard{userData}
+      Dashboard {userData.name}
     </div>
   )
 }
