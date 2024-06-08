@@ -13,11 +13,9 @@ const UserSchema = new mongoose.Schema(
         id: {
         type: Number,
         unique: true,
-        required: true,
         },
         name: {
         type: String,
-        required: true,
         },
         address: {
         type: String,
@@ -29,15 +27,12 @@ const UserSchema = new mongoose.Schema(
         },
         phoneNo: {
         type: Number,
-        required: true,
         },
         grade:{
         type: Number,
-        required: true,
         },
         password: {
         type: String,
-        required: true,
         },
     },
     {
@@ -49,4 +44,4 @@ const UserSchema = new mongoose.Schema(
     );
 const Users = mongoose.model('Users', UserSchema);
 
-module.exports ={Users}
+module.exports =Users
