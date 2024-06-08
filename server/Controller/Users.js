@@ -131,3 +131,13 @@ exports.login = async (req, res) => {
     });
   }
 };
+
+
+exports.getUserData=async(req, res)=>{
+  console.log("reqqq",req.user)
+  if(req.user){
+    res.status(200).json({message: "user authenticated"})
+  }else{
+    res.status(401).json({message: "user not authenticated"})
+  }
+};

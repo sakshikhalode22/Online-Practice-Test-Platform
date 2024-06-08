@@ -14,6 +14,7 @@ routing.use((req, res, next) => {
 routing.post('/addusers', users.addUser);
 routing.get('/users', users.getAllUsers);  
 routing.post('/login', users.login);
+routing.get('/login/success',users.getUserData);
 
 module.exports = routing;
 

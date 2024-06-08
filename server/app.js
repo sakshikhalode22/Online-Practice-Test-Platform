@@ -22,8 +22,7 @@ app.use(bodyparser.json());
 app.use(myReqLogger);
 app.use("/", route);
 
-const clientId =
-  "YOUR GOOGLE CLIENT ID";
+const clientId = "YOUR GOOGLE CLIENT ID";
 const clientSecret = "YOUR GOOGLE CLIENT SECRET";
 
 //setup session
@@ -88,9 +87,10 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
     successRedirect: "http://localhost:3000/dashboard",
-    failureRedirect: "http://localhost:3000/auth",
+    failureRedirect: "http://localhost:3000/login",
   })
 );
+
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
