@@ -1,5 +1,12 @@
-import React from "react";
-import { Container, Box, Typography, Button, Stack } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Container,
+  Box,
+  Typography,
+  Button,
+  Stack,
+  CircularProgress,
+} from "@mui/material";
 import { CssBaseline } from "@mui/material";
 import { Link } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
@@ -7,7 +14,6 @@ import MailIcon from "@mui/icons-material/Mail";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import Login from "./Login";
-
 
 const useStyles = makeStyles({
   root: {
@@ -40,32 +46,35 @@ const useStyles = makeStyles({
 });
 
 const Authenticate = () => {
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
+
+  const [loading, setLoading] = useState(false);
 
   const buttonClicked = useSelector(
     (state) => state.userReducers.buttonClicked
   );
 
-  const googleLogin =useSelector(
-    (state) => state.userReducers.googleLogin
-  )
+  const googleLogin = useSelector((state) => state.userReducers.googleLogin);
 
-  console.log(buttonClicked,googleLogin)
-
-
+  console.log(buttonClicked, googleLogin);
 
   const handleGoogleLogin = () => {
-    dispatch({type: "GOOGLELOGIN", payload: true})
-    dispatch({type: "BUTTONCLICKED", payload: true})
-    window.open(
-      "http://localhost:5000/auth/google/callback",
-      "_self"
-    )
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      dispatch({ type: "GOOGLELOGIN", payload: true });
+      dispatch({ type: "BUTTONCLICKED", payload: true });
+      window.open("http://localhost:5000/auth/google/callback", "_self");
+    }, 2000);
   };
 
   const handleEmailLogin = () => {
-    dispatch({type: "GOOGLELOGIN", payload: false})
-    dispatch({type: "BUTTONCLICKED", payload: true})
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      dispatch({ type: "GOOGLELOGIN", payload: false });
+      dispatch({ type: "BUTTONCLICKED", payload: true });
+    }, 2000);
   };
 
   return (
@@ -97,6 +106,7 @@ const Authenticate = () => {
         </Typography>
         {!buttonClicked ? (
           <>
+            {loading && <CircularProgress size={24} />}
             <Stack
               spacing={4}
               sx={{
@@ -154,9 +164,7 @@ const Authenticate = () => {
             </Typography>
           </>
         ) : (
-          <Login
-            useStyles={useStyles}
-          />
+          <Login useStyles={useStyles} />
         )}
       </Box>
     </Container>
