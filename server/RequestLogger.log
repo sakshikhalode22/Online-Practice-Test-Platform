@@ -122,3 +122,12 @@ Sat Jun 08 2024 11:03:39 GMT+0530 (India Standard Time) - GET - /auth/google/cal
 Sat Jun 08 2024 11:05:25 GMT+0530 (India Standard Time) - GET - /auth/google/callback 
 Sat Jun 08 2024 11:07:23 GMT+0530 (India Standard Time) - GET - /auth/google/callback 
 Sat Jun 08 2024 11:07:39 GMT+0530 (India Standard Time) - GET - /auth/google/callback?code=4/0ATx3LY46Mya-sz4VAEZH1DMlx4dKG7O3LXUHAZFjepCiAe4cMyI9Ax86oXRsCrAt8OfDYw&scope=email%20profile%20openid%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email&authuser=0&prompt=consent 
+Sat Jun 08 2024 11:51:33 GMT+0530 (India Standard Time) - GET - /auth/google/callback 
+Sat Jun 08 2024 11:53:11 GMT+0530 (India Standard Time) - GET - /auth/google/callback 
+Sat Jun 08 2024 11:53:11 GMT+0530 (India Standard Time) - GET - /auth/google/callback?code=4%2F0ATx3LY49hrjfsEpZknhjXSWF1pi-nClwxhLCzM2xC1gNLfStBGRWd2JvuTRYz7YTxH_Uwg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=none 
+Sat Jun 08 2024 11:54:50 GMT+0530 (India Standard Time) - GET - /auth/google/callback 
+Sat Jun 08 2024 11:54:51 GMT+0530 (India Standard Time) - GET - /auth/google/callback?code=4%2F0AdLIrYdQFzMst97px8vUlkZj_pVzqAmz5avlO3LldGCjlQsiwEc_g6HXjTg3a2ZoHErNJg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=none 
+Sat Jun 08 2024 11:56:32 GMT+0530 (India Standard Time) - GET - /auth/google/callback 
+Sat Jun 08 2024 11:56:32 GMT+0530 (India Standard Time) - GET - /auth/google/callback?code=4%2F0AdLIrYefpTiUDYMWytKybr8vE9tpvoUDNMEb97bQ4oW3-x2Gcfy2b7-a50iqNxDZfQ-a-w&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=none 
+Sat Jun 08 2024 11:57:23 GMT+0530 (India Standard Time) - GET - /auth/google/callback 
+Sat Jun 08 2024 11:57:24 GMT+0530 (India Standard Time) - GET - /auth/google/callback?code=4%2F0ATx3LY6I19Rr-b4N3p43rEicJ4YCdy3YRvkyVHeKDdNVg4zHOzrFX3PQ_j6fOtUcFn5kmw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=none 

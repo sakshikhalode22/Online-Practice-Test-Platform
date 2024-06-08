@@ -5,9 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 
-const Login = ({
-  useStyles,
-}) => {
+const Login = ({ useStyles }) => {
   const classes = useStyles();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,8 +18,8 @@ const Login = ({
     password: "",
   });
 
-  const [loginError, setLoginError]=useState("");
-  const [btnStatus, setBtnStatus]= useState(false)
+  const [loginError, setLoginError] = useState("");
+  const [btnStatus, setBtnStatus] = useState(false);
 
   const navigateToAuth = () => {
     dispatch({ type: "BUTTONCLICKED", payload: false });
@@ -29,15 +27,13 @@ const Login = ({
     navigate("/auth");
   };
 
-    useEffect(() => {
+  useEffect(() => {
     if (state.email && state.password) {
-        setBtnStatus(true);
+      setBtnStatus(true);
     } else {
-        setBtnStatus(false);
+      setBtnStatus(false);
     }
-    }, [state.email, state.password]);
-    
-
+  }, [state.email, state.password]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,36 +52,34 @@ const Login = ({
     };
     try {
       const response = await axios.post(loginURL, data);
-      console.log(response,response.status);
+      console.log(response, response.status);
       if (response.status === 200) {
         sessionStorage.setItem("user-login", JSON.stringify(response.data));
         navigate("/dashboard");
       }
     } catch (error) {
-        setLoginError("Invalid user, Please try again.. or register");
+      setLoginError("Invalid user, Please try again.. or register");
     }
   };
 
   return (
     <form>
       {/* create form using mui */}
-      {!googleLogin && (
+      {!googleLogin ? (
         <Container className={classes.root}>
-          {
-            loginError && (
-              <Typography
-                className={classes.error}
-                sx={{
-                  marginBottom:2,
-                  fontSize: "0.8 rem",
-                  lineHeight: "1.5",
-                  fontWeight: "200",
-                }}
-              >
-                {loginError}
-              </Typography>
-            )
-          }
+          {loginError && (
+            <Typography
+              className={classes.error}
+              sx={{
+                marginBottom: 2,
+                fontSize: "0.8 rem",
+                lineHeight: "1.5",
+                fontWeight: "200",
+              }}
+            >
+              {loginError}
+            </Typography>
+          )}
           <TextField
             className={classes.textField}
             label="Email"
@@ -117,7 +111,7 @@ const Login = ({
               width: "90%",
               borderRadius: 20,
             }}
-        disabled={!btnStatus}
+            disabled={!btnStatus}
             onClick={(e) => userLogin(e)}
           >
             Login
@@ -140,6 +134,20 @@ const Login = ({
               }}
             />
             Back to Authentication option
+          </Typography>
+        </Container>
+      ) : (
+        <Container className={classes.root}>
+          <Typography
+            sx={{
+              marginTop: 4,
+              fontSize: "0.8 rem",
+              lineHeight: "1.5",
+              color: "green",
+              fontWeight: "600",
+            }}
+          >
+            Taking you to google page, Please Wait....
           </Typography>
         </Container>
       )}
