@@ -1,15 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { Container, Typography, TextField, Button } from "@mui/material";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
 
-const Login = ({ useStyles }) => {
+const useStyles = makeStyles({
+  root: {
+    display: "flex !important",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 20,
+    padding: 10,
+    width: "100%",
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: "lighter",
+    color: "#ac8971",
+    textAlign: "center",
+    fontFamily: "Brush Script MT",
+  },
+
+  textField: {
+    display: "flex",
+    margin: "10px !important",
+  },
+
+  error: {
+    color: "red",
+  },
+  success: {
+    color: "green",
+  },
+});
+
+const Login = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const googleLogin = useSelector((state) => state.userReducers.googleLogin);
 
   const loginURL = "http://localhost:5000/login";
 
@@ -20,12 +48,6 @@ const Login = ({ useStyles }) => {
 
   const [loginError, setLoginError] = useState("");
   const [btnStatus, setBtnStatus] = useState(false);
-
-  const navigateToAuth = () => {
-    dispatch({ type: "BUTTONCLICKED", payload: false });
-    dispatch({ type: "GOOGLELOGIN", payload: false });
-    navigate("/auth");
-  };
 
   useEffect(() => {
     if (state.email && state.password) {
@@ -64,93 +86,58 @@ const Login = ({ useStyles }) => {
 
   return (
     <form>
-      {/* create form using mui */}
-      {!googleLogin ? (
-        <Container className={classes.root}>
-          {loginError && (
-            <Typography
-              className={classes.error}
-              sx={{
-                marginBottom: 2,
-                fontSize: "0.8 rem",
-                lineHeight: "1.5",
-                fontWeight: "200",
-              }}
-            >
-              {loginError}
-            </Typography>
-          )}
-          <TextField
-            className={classes.textField}
-            label="Email"
-            variant="outlined"
-            type="email"
-            size="small"
-            name="email"
-            onChange={(e) => {
-              handleChange(e);
-            }}
-            required
-          />
-          <TextField
-            className={classes.textField}
-            label="Password"
-            variant="outlined"
-            type="password"
-            size="small"
-            name="password"
-            onChange={(e) => {
-              handleChange(e);
-            }}
-            required
-          />
-          <Button
-            variant="outlined"
-            color="black"
-            sx={{
-              width: "90%",
-              borderRadius: 20,
-            }}
-            disabled={!btnStatus}
-            onClick={(e) => userLogin(e)}
-          >
-            Login
-          </Button>
+      <Container className={classes.root}>
+        {loginError && (
           <Typography
+            className={classes.error}
             sx={{
-              marginTop: 4,
+              marginBottom: 2,
               fontSize: "0.8 rem",
               lineHeight: "1.5",
-              color: "green",
-              fontWeight: "600",
-              cursor: "pointer",
-            }}
-            onClick={navigateToAuth}
-          >
-            <ArrowBackIosIcon
-              sx={{
-                position: "relative",
-                top: "6px",
-              }}
-            />
-            Back to Authentication option
-          </Typography>
-        </Container>
-      ) : (
-        <Container className={classes.root}>
-          <Typography
-            sx={{
-              marginTop: 4,
-              fontSize: "0.8 rem",
-              lineHeight: "1.5",
-              color: "green",
-              fontWeight: "600",
+              fontWeight: "200",
             }}
           >
-            Taking you to google page, Please Wait....
+            {loginError}
           </Typography>
-        </Container>
-      )}
+        )}
+        <TextField
+          className={classes.textField}
+          label="Email"
+          variant="outlined"
+          type="email"
+          size="small"
+          name="email"
+          onChange={(e) => {
+            handleChange(e);
+          }}
+          required
+        />
+        <TextField
+          className={classes.textField}
+          label="Password"
+          variant="outlined"
+          type="password"
+          size="small"
+          name="password"
+          onChange={(e) => {
+            handleChange(e);
+          }}
+          required
+        />
+        <Button
+          variant="outlined"
+          color="black"
+          sx={{
+            width: "90%",
+            borderRadius: 20,
+            marginTop: 2,
+          }}
+          disabled={!btnStatus}
+          onClick={(e) => userLogin(e)}
+        >
+          Login
+        </Button>
+      </Container>
     </form>
   );
 };

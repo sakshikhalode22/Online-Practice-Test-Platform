@@ -41,18 +41,16 @@ const theme = createTheme({
 });
 
 function App() {
-
-
   return (
     <>
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" exact element={<Authenticate />} />
-          <Route path="/auth" element={<Authenticate />} />
-          <Route path="/dashboard" element={<Dashboard/>}/>
-        </Routes>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Routes>
+            <Route path="/" exact element={<Authenticate />} />
+            <Route path="/login" element={<Authenticate />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </Router>
       </ThemeProvider>
     </>
   );
