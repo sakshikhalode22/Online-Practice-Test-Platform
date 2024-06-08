@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Authenticate from "./Components/Authenticate";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Dashboard from "./Components/Dashboard";
+import Register from "./Components/Register";
 
 const theme = createTheme({
   palette: {
@@ -48,6 +49,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Authenticate />} />
             <Route path="/login" element={<Authenticate />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </Router>

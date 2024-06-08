@@ -1,4 +1,4 @@
-const { Users } = require("../Model/Schema");
+const Users = require("../Model/Schema");
 
 exports.generateUserId = async () => {
   const user = await Users.find({});

@@ -1,6 +1,6 @@
 exports.ValidateName = function (name) {
   console.log(name.length);
-  if (name.length !== 0 && name.length > 3) {
+  if (name.length !== 0 && name.length >= 3) {
     return true;
   }
   return false;
