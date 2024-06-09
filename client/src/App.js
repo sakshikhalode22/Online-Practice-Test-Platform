@@ -3,6 +3,7 @@ import Authenticate from "./Components/Authenticate";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Dashboard from "./Components/Dashboard";
 import Register from "./Components/Register";
+import Header from "./Components/Header";
 
 const theme = createTheme({
   palette: {
@@ -42,6 +43,7 @@ const theme = createTheme({
 });
 
 function App() {
+  
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -52,7 +54,9 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
+          <Header/>
         </Router>
+        
       </ThemeProvider>
     </>
   );

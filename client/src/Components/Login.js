@@ -3,6 +3,7 @@ import { Container, Typography, TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles({
   root: {
@@ -38,6 +39,7 @@ const useStyles = makeStyles({
 const Login = () => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const loginURL = "http://localhost:5000/login";
 
@@ -76,7 +78,9 @@ const Login = () => {
       const response = await axios.post(loginURL, data);
       console.log(response, response.status);
       if (response.status === 200) {
-        sessionStorage.setItem("user-login", JSON.stringify(response.data));
+        sessionStorage.setItem("user-login", JSON.stringify(response.data.data.user.name));
+        dispatch({ type: "USERLOGEDIN", payload: true });
+        dispatch({ type: "USERINFO", payload: response.data.data.user });
         navigate("/dashboard");
       }
     } catch (error) {
