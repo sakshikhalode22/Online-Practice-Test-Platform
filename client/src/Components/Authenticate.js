@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import { useDispatch } from "react-redux";
 import Login from "./Login";
+import axios from "axios";
 
 const Authenticate = () => {
   const dispatch = useDispatch();
@@ -22,8 +23,16 @@ const Authenticate = () => {
       setLoading(false);
       dispatch({ type: "GOOGLELOGIN", payload: true });
       window.open("http://localhost:5000/auth/google/callback", "_self");
+      loginData();
     }, 2000);
   };
+
+  const loginData = async()=>{
+    const res = await axios.get("http://localhost:5000/login/success", { withCredentials: true });
+    sessionStorage.setItem("user-login", JSON.stringify(res.data.user.name));
+    dispatch({ type: "USERLOGEDIN", payload: true });
+    dispatch({ type: "USERINFO", payload: res.data.user });
+  }
 
   return (
     <Container component="main" maxWidth="xs">
