@@ -3,7 +3,7 @@ const session=sessionStorage.getItem("user-login")? JSON.parse(sessionStorage.ge
 console.log(session)
 const initialState={
     isLoggedIn:session,
-    userLoginInfo:null,
+    userLoginInfo:session,
     googleLogin:false
 }
 const UserReducers=(state=initialState,action)=>{

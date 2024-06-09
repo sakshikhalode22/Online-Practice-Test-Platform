@@ -29,7 +29,7 @@ const Authenticate = () => {
 
   const loginData = async()=>{
     const res = await axios.get("http://localhost:5000/login/success", { withCredentials: true });
-    sessionStorage.setItem("user-login", JSON.stringify(res.data.user.name));
+    sessionStorage.setItem("user-login", JSON.stringify(res.data.user));
     dispatch({ type: "USERLOGEDIN", payload: true });
     dispatch({ type: "USERINFO", payload: res.data.user });
   }
