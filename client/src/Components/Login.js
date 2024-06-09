@@ -78,7 +78,7 @@ const Login = () => {
       const response = await axios.post(loginURL, data);
       console.log(response, response.status);
       if (response.status === 200) {
-        sessionStorage.setItem("user-login", JSON.stringify(response.data.data.user.name));
+        sessionStorage.setItem("user-login", JSON.stringify(response.data.data.user));
         dispatch({ type: "USERLOGEDIN", payload: true });
         dispatch({ type: "USERINFO", payload: response.data.data.user });
         navigate("/dashboard");
