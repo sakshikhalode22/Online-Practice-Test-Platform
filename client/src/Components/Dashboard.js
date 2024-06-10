@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { Grid, Paper, Typography } from "@mui/material";
+import { Grid, Paper, TextField, Typography } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import Calendar from "./Calendar";
@@ -19,6 +19,20 @@ function Dashboard() {
     !isLoggedIn && navigate("/login");
   }, [isLoggedIn, navigate]);
 
+  const [list,setList]= useState(null);
+  console.log(list,"list")
+  const userExamUrl=`http://localhost:5000/exams/${userInfo?.id}`
+  useEffect(()=>{
+    axios.get(userExamUrl)
+    .then((res)=>{
+      console.log(res.data.data.exams,"data");
+      setList(res.data.data.exams);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },[userExamUrl])
+
   return (
     <>
       <Grid
@@ -33,7 +47,7 @@ function Dashboard() {
             elevation={3}
             style={{ padding: "20px" }}
             // background color
-            sx={{ backgroundColor: "#66bb6a", borderRadius: "10px" }}
+            sx={{ backgroundColor: "#66bb6a", borderRadius: "10px"}}
           >
             <Typography variant="h6" sx={{ fontWeight: "bold" }}>
               Hi, {userInfo?.name}
@@ -47,7 +61,7 @@ function Dashboard() {
             elevation={3}
             style={{ padding: "20px" }}
             // background color
-            sx={{ backgroundColor: "#a5d6a7", borderRadius: "10px" }}
+            sx={{ backgroundColor: "#a5d6a7", borderRadius: "10px"}}
           >
             <Typography
               variant="h6"
@@ -61,7 +75,7 @@ function Dashboard() {
               Academic Details
             </Typography>
             <Typography variant="body1">Grade: {userInfo.grade}</Typography>
-            <Typography variant="body1">School: {userInfo.grade}</Typography>
+            {userInfo.school && <Typography variant="body1">School: {userInfo.school}</Typography>}
           </Paper>
         </Grid>
 
@@ -73,9 +87,9 @@ function Dashboard() {
             sx={{ backgroundColor: "#a5d6a7", borderRadius: "10px" }}
           >
             <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-              List of Exams(with result)
+              List of Exams
             </Typography>
-            <ListOfExam/>
+            <ListOfExam list={list}/>
           </Paper>
         </Grid>
 
@@ -86,11 +100,16 @@ function Dashboard() {
             // background color
             sx={{ backgroundColor: "#a5d6a7", borderRadius: "10px" }}
           >
-            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-              Total Exams
+            <Typography variant="h5" sx={{ textAlign: "center", fontWeight: "bold" }}>
+              Total
             </Typography>
-            <Typography variant="body1">Email: {userInfo.email}</Typography>
-            <Typography variant="body1">Mobile: {userInfo.phoneNo}</Typography>
+            {/* in center list.length in big font  */}
+            <Typography variant="h2" sx={{ textAlign: "center", fontWeight:"bolder" }}>
+              {list?.length}
+            </Typography>
+            <Typography variant="h6" sx={{ textAlign: "center" }}>
+              Exams
+            </Typography>
           </Paper>
         </Grid>
 
@@ -105,7 +124,7 @@ function Dashboard() {
               <CalendarMonthIcon sx={{ marginBottom: "-5px" }} />
               Calender
             </Typography>
-            <Calendar/>
+            <Calendar list={list}/>
           </Paper>
         </Grid>
       </Grid>

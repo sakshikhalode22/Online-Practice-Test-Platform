@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useRef, useState,useEffect} from 'react';
 import dayjs from 'dayjs';
 import Badge from '@mui/material/Badge';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -27,7 +27,7 @@ function fakeFetch(date, { signal }) {
   });
 }
 
-const initialValue = dayjs('2022-04-17');
+const initialValue = dayjs(new Date());
 
 function ServerDay(props) {
   const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
@@ -46,10 +46,10 @@ function ServerDay(props) {
   );
 }
 
-const Calendar=()=> {
-  const requestAbortController = React.useRef(null);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [highlightedDays, setHighlightedDays] = React.useState([1, 2, 15]);
+const Calendar=({list})=> {
+  const requestAbortController = useRef(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [highlightedDays, setHighlightedDays] =useState([1, 2, 15]);
 
   const fetchHighlightedDays = (date) => {
     const controller = new AbortController();
@@ -70,7 +70,7 @@ const Calendar=()=> {
     requestAbortController.current = controller;
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchHighlightedDays(initialValue);
     // abort request on unmount
     return () => requestAbortController.current?.abort();

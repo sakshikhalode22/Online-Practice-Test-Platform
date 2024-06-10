@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -15,6 +15,7 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import { deepPurple } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Profile from "./Profile";
 
 const pages = ["Dashboard", "Take Test"];
 
@@ -24,6 +25,18 @@ const Header = () => {
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpen = (event) => {
+    event.stopPropagation();
+    console.log("open");
+    setOpenModal(true);
+  };
+  const handleClose = (event) => {
+    event.stopPropagation();
+    console.log("close");
+    setOpenModal(false);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -49,10 +62,10 @@ const Header = () => {
     return name.charAt(0).toUpperCase();
   };
 
-  const loggedOut = () =>{
+  const loggedOut = () => {
     sessionStorage.removeItem("user-login");
     window.location.reload();
-  }
+  };
   return (
     <AppBar color="success" position="fixed">
       <Container maxWidth="xl">
@@ -206,23 +219,25 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-             
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">
-                    <Link
-                      style={{ color: "black", textDecoration: "none" }}
-                      to='/profile'
-                    >
-                      Profile
-                    </Link>
-                  </Typography>
-                </MenuItem>
-                <MenuItem onClick={()=>{handleCloseUserMenu(); loggedOut();}}>
-                  <Typography textAlign="center">
-                    Logout
-                  </Typography>
-                </MenuItem>
-              
+              <MenuItem
+                onClick={(e) => {
+                  handleCloseUserMenu();
+                  handleOpen(e);
+                }}
+              >
+                <Typography textAlign="center">
+                  Profile
+                  <Profile openModal={openModal} handleClose={handleClose} />
+                </Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleCloseUserMenu();
+                  loggedOut();
+                }}
+              >
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
