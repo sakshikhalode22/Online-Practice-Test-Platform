@@ -114,6 +114,7 @@ exports.login = async (req, res) => {
 // update userdetails name, address, phoneNo,grade,school
 exports.updateUser = async (req, res) => {
   try {
+    console.log(req.body)
     const user = await Users.findOneAndUpdate(
       { email: req.params.email },
       {
