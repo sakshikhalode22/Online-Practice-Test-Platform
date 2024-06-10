@@ -1,4 +1,4 @@
-const Users  = require("../Model/Schema");
+const { Users } = require("../Model/Schema");
 const validator = require("../Utilities/validator");
 const helper = require("../Utilities/helpers");
 
@@ -16,14 +16,14 @@ exports.addUser = async (req, res) => {
     } else if (
       validator.ValidateName(req.body.name) &&
       validator.ValidateEmail(req.body.email) &&
-      validator.ValidatePassword(req.body.password) 
+      validator.ValidatePassword(req.body.password)
     ) {
       const Id = await helper.generateUserId();
       const user = await Users.create({
         id: Id,
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: req.body.password
       });
       res.status(201).json({
         status: "success",
@@ -46,7 +46,7 @@ exports.addUser = async (req, res) => {
         status: "error",
         results: "Enter valid password and length should be 8-12",
       });
-    } 
+    }
   } catch (err) {
     res.status(404).json({
       status: "fail",
@@ -101,6 +101,54 @@ exports.login = async (req, res) => {
       res.status(400).json({
         status: "error",
         results: "Invalid credentials",
+      });
+    }
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
+
+// update userdetails name, address, phoneNo,grade,school
+exports.updateUser = async (req, res) => {
+  try {
+    const user = await Users.findOneAndUpdate(
+      { email: req.params.email },
+      {
+        name: req.body.name,
+        address: req.body.address,
+        phoneNo: req.body.phoneNo,
+        grade: req.body.grade,
+        school: req.body.school,
+      },
+      { new: true }
+    );
+    if (user) {
+      res.status(200).json({
+        status: "success",
+        data: {
+          user,
+        },
+      });
+    }
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
+
+// delete all users
+exports.deleteAllUsers = async (req, res) => {
+  try {
+    const user = await Users.deleteMany();
+    if (user) {
+      res.status(200).json({
+        status: "success",
+        message: "All users deleted",
       });
     }
   } catch (err) {

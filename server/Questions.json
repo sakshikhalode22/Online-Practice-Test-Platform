@@ -1,0 +1,703 @@
+{
+  "grade7": [
+    {
+      "algebra": [
+        {
+          "id": 1,
+          "que": "Simplify the expression: 3x + 5 + 2x - 1",
+          "options": [
+            "(3x + 4x) + (5 - 2) = 5x + 4",
+            "(3x + 2x) + (5 - 1) = 4x + 2",
+            "(3x + 2x) + (5 - 1) = 5x + 4",
+            "(3x + 2x) + (5 - 1) = 5 + 4x"
+          ],
+          "ans": "(3x + 2x) + (5 - 1) = 5x + 4",
+          "level": "Midium"
+        },
+        {
+          "id": 2,
+          "que": "Simplify the expression: 2x + 3(x + 4)",
+          "options": [
+            "2x + 3x + 4",
+            "2x + 3x + 12",
+            "2x + 3x + 7",
+            "2x + 3x + 8"
+          ],
+          "ans": "2x + 3x + 12",
+          "level": "Midium"
+        },
+        {
+          "id": 3,
+          "que": "Simplify the expression: 3(x - 2) + 4(x + 3)",
+          "options": [
+            "3x - 6 + 4x + 12",
+            "3x - 6 + 4x + 3",
+            "3x - 6 + 4x + 4",
+            "3x - 6 + 4x + 6"
+          ],
+          "ans": "3x - 6 + 4x + 12",
+          "level": "Easy"
+        },
+        {
+          "id": 4,
+          "que": "Simplify the expression: 2(x - 3) - 3(x + 2)",
+          "options": [
+            "2x - 6 - 3x - 6",
+            "2x - 6 - 3x - 3",
+            "2x - 6 - 3x - 2",
+            "2x - 6 - 3x - 4"
+          ],
+          "ans": "2x - 6 - 3x - 6",
+          "level": "Midium"
+        },
+        {
+          "id": 5,
+          "que": "If x = 2, find the value of 4x + 1.",
+          "options": ["8", "7", "6", "9"],
+          "ans": "9",
+          "level": "Easy"
+        },
+        {
+          "id": 6,
+          "que": "Solve the equation: 2x + 5 = 11",
+          "options": ["x = 3", "x = 5", "x = 4", "x = 2"],
+          "ans": "x = 3",
+          "level": "Easy"
+        },
+        {
+          "id": 7,
+          "que": ": If Rita earns ₹25 per day and spends ₹15 daily, how many days does she need to save ₹100?",
+          "options": ["10", "12", "13", "11"],
+          "ans": "10",
+          "level": "Hard"
+        },
+        {
+          "id": 8,
+          "que": "The area of a rectangle is represented by l × b. If the length is increased by 2 cm and the breadth remains the same, express the new area.",
+          "options": [
+            "New Area = (l + 3) × b",
+            "New Area = (l + 2) × b",
+            "New Area = (b + 2) + l",
+            "New Area = (l + 4) × b"
+          ],
+          "ans": "New Area = (l + 2) × b",
+          "level": "Hard"
+        },
+        {
+          "id": 9,
+          "que": "3a + 2b, if a = 4 and b = 3",
+          "options": ["17", "18", "20", "19"],
+          "ans": "18",
+          "level": "Easy"
+        },
+        {
+          "id": 10,
+          "que": "The coefficient of x in 3x² + 2x - 1",
+          "options": ["3", "5", "4", "7"],
+          "ans": "3",
+          "level": "Midium"
+        }
+      ]
+    },
+    {
+      "geometry": [
+        {
+          "id": 11,
+          "que": "The perimeter of a rectangle is 30 cm. If the length is 8 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "7 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 12,
+          "que": "The perimeter of a square is 20 cm. Find the length of each side.",
+          "options": ["5 cm", "4 cm", "6 cm", "7 cm"],
+          "ans": "5 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 13,
+          "que": "The area of a square is 64 cm². Find the length of each side.",
+          "options": ["8 cm", "6 cm", "7 cm", "5 cm"],
+          "ans": "8 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 14,
+          "que": "The area of a rectangle is 48 cm². If the length is 8 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Medium"
+        },
+        {
+          "id": 15,
+          "que": "The area of a square is 100 cm². Find the length of each side.",
+          "options": ["10 cm", "11 cm", "12 cm", "9 cm"],
+          "ans": "10 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 16,
+          "que": "The area of a rectangle is 60 cm². If the length is 10 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Medium"
+        },
+        {
+          "id": 17,
+          "que": "The perimeter of a rectangle is 24 cm. If the length is 6cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Hard"
+        },
+        {
+          "id": 18,
+          "que": "The perimeter of a square is 16 cm. Find the length of each side.",
+          "options": ["4 cm", "5 cm", "6 cm", "7 cm"],
+          "ans": "4 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 19,
+          "que": "The area of a square is 49 cm². Find the length of each side.",
+          "options": ["7 cm", "6 cm", "8 cm", "5 cm"],
+          "ans": "7 cm",
+          "level": "Hard"
+        },
+        {
+          "id": 20,
+          "que": "The area of a rectangle is 35 cm². If the length is 7 cm, find the breadth.",
+          "options": ["5 cm", "6 cm", "7 cm", "8 cm"],
+          "ans": "5 cm",
+          "level": "Hard"
+        }
+      ]
+    }
+  ],
+  "grade8": [
+    {
+      "algebra": [
+        {
+          "id": 21,
+          "que": "Simplify the expression: 3x + 5 + 2x - 1",
+          "options": [
+            "(3x + 4x) + (5 - 2) = 5x + 4",
+            "(3x + 2x) + (5 - 1) = 4x + 2",
+            "(3x + 2x) + (5 - 1) = 5x + 4",
+            "(3x + 2x) + (5 - 1) = 5 + 4x"
+          ],
+          "ans": "(3x + 2x) + (5 - 1) = 5x + 4",
+          "level": "Midium"
+        },
+        {
+          "id": 22,
+          "que": "Simplify the expression: 2x + 3(x + 4)",
+          "options": [
+            "2x + 3x + 4",
+            "2x + 3x + 12",
+            "2x + 3x + 7",
+            "2x + 3x + 8"
+          ],
+          "ans": "2x + 3x + 12",
+          "level": "Midium"
+        },
+        {
+          "id": 23,
+          "que": "Simplify the expression: 3(x - 2) + 4(x + 3)",
+          "options": [
+            "3x - 6 + 4x + 12",
+            "3x - 6 + 4x + 3",
+            "3x - 6 + 4x + 4",
+            "3x - 6 + 4x + 6"
+          ],
+          "ans": "3x - 6 + 4x + 12",
+          "level": "Easy"
+        },
+        {
+          "id": 24,
+          "que": "Simplify the expression: 2(x - 3) - 3(x + 2)",
+          "options": [
+            "2x - 6 - 3x - 6",
+            "2x - 6 - 3x - 3",
+            "2x - 6 - 3x- 2",
+            "2x - 6 - 3x - 4"
+          ],
+          "ans": "2x - 6 - 3x - 6",
+          "level": "Midium"
+        },
+        {
+          "id": 25,
+          "que": "If x = 2, find the value of 4x + 1.",
+          "options": ["8", "7", "6", "9"],
+          "ans": "9",
+          "level": "Easy"
+        },
+        {
+          "id": 26,
+          "que": "Solve the equation: 2x + 5 = 11",
+          "options": ["x = 3", "x = 5", "x = 4", "x = 2"],
+          "ans": "x = 3",
+          "level": "Easy"
+        },
+        {
+          "id": 27,
+          "que": ": If Rita earns ₹25 per day and spends ₹15 daily, how many days does she need to save ₹100?",
+          "options": ["10", "12", "13", "11"],
+          "ans": "10",
+          "level": "Hard"
+        },
+        {
+          "id": 28,
+          "que": "The area of a rectangle is represented by l × b. If the length is increased by 2 cm and the breadth remains the same, express the new area.",
+          "options": [
+            "New Area = (l + 3) × b",
+            "New Area = (l + 2) × b",
+            "New Area = (b + 2) + l",
+            "New Area = (l + 4) × b"
+          ],
+          "ans": "New Area = (l + 2) × b",
+          "level": "Hard"
+        },
+        {
+          "id": 29,
+          "que": "3a + 2b, if a = 4 and b = 3",
+          "options": ["17", "18", "20", "19"],
+          "ans": "18",
+          "level": "Easy"
+        },
+        {
+          "id": 30,
+          "que": "The coefficient of x in 3x² + 2x - 1",
+          "options": ["3", "5", "4", "7"],
+          "ans": "3",
+          "level": "Midium"
+        }
+      ]
+    },
+    {
+      "geometry": [
+        {
+          "id": 31,
+          "que": "The perimeter of a rectangle is 30 cm. If the length is 8 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "7 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 32,
+          "que": "The perimeter of a square is 20 cm. Find the length of each side.",
+          "options": ["5 cm", "4 cm", "6 cm", "7 cm"],
+          "ans": "5 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 33,
+          "que": "The area of a square is 64 cm². Find the length of each side.",
+          "options": ["8 cm", "6 cm", "7 cm", "5 cm"],
+          "ans": "8 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 34,
+          "que": "The area of a rectangle is 48 cm². If the length is 8 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Medium"
+        },
+        {
+          "id": 35,
+          "que": "The area of a square is 100 cm². Find the length of each side.",
+          "options": ["10 cm", "11 cm", "12 cm", "9 cm"],
+          "ans": "10 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 36,
+          "que": "The area of a rectangle is 60 cm². If the length is 10 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Medium"
+        },
+        {
+          "id": 37,
+          "que": "The perimeter of a rectangle is 24 cm.If the length is 6cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Hard"
+        },
+        {
+          "id": 38,
+          "que": "The perimeter of a square is 16 cm. Find the length of each side.",
+          "options": ["4 cm", "5 cm", "6 cm", "7 cm"],
+          "ans": "4 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 39,
+          "que": "The area of a square is 49 cm². Find the length of each side.",
+          "options": ["7 cm", "6 cm", "8 cm", "5 cm"],
+          "ans": "7 cm",
+          "level": "Hard"
+        },
+        {
+          "id": 40,
+          "que": "The area of a rectangle is 35 cm². If the length is 7 cm, find the breadth.",
+          "options": ["5 cm", "6 cm", "7 cm", "8 cm"],
+          "ans": "5 cm",
+          "level": "Hard"
+        }
+      ]
+    }
+  ],
+  "grade9": [
+    {
+      "algebra": [
+        {
+          "id": 41,
+          "que": "Simplify the expression: 3x + 5 + 2x - 1",
+          "options": [
+            "(3x + 4x) + (5 - 2) = 5x + 4",
+            "(3x + 2x) + (5 - 1) = 4x + 2",
+            "(3x + 2x) + (5 - 1) = 5x + 4",
+            "(3x + 2x) + (5 - 1) = 5 + 4x"
+          ],
+          "ans": "(3x + 2x) + (5 - 1) = 5x + 4",
+          "level": "Midium"
+        },
+        {
+          "id": 42,
+          "que": "Simplify the expression: 2x + 3(x + 4)",
+          "options": [
+            "2x + 3x + 4",
+            "2x + 3x + 12",
+            "2x + 3x + 7",
+            "2x + 3x + 8"
+          ],
+          "ans": "2x + 3x + 12",
+          "level": "Midium"
+        },
+        {
+          "id": 43,
+          "que": "Simplify the expression: 3(x - 2) + 4(x + 3)",
+          "options": [
+            "3x - 6 + 4x + 12",
+            "3x - 6 + 4x + 3",
+            "3x - 6 + 4x + 4",
+            "3x - 6 + 4x + 6"
+          ],
+          "ans": "3x - 6 + 4x + 12",
+          "level": "Easy"
+        },
+        {
+          "id": 44,
+          "que": "Simplify the expression: 2(x - 3) - 3(x + 2)",
+          "options": [
+            "2x - 6 - 3x - 6",
+            "2x - 6 - 3x - 3",
+            "2x - 6 - 3x - 2",
+            "2x - 6 - 3x - 4"
+          ],
+          "ans": "2x - 6 - 3x - 6",
+          "level": "Midium"
+        },
+        {
+          "id": 45,
+          "que": "If x = 2, find the value of 4x + 1.",
+          "options": ["8", "7", "6", "9"],
+          "ans": "9",
+          "level": "Easy"
+        },
+        {
+          "id": 46,
+          "que": "Solve the equation: 2x + 5 = 11",
+          "options": ["x = 3", "x = 5", "x = 4", "x = 2"],
+          "ans": "x = 3",
+          "level": "Easy"
+        },
+        {
+          "id": 47,
+          "que": ": If Rita earns ₹25 per day and spends ₹15 daily, how many days does she need to save ₹100?",
+          "options": ["10", "12", "13", "11"],
+          "ans": "10",
+          "level": "Hard"
+        },
+        {
+          "id": 48,
+          "que": "The area of a rectangle is represented by l × b. If the length is increased by 2 cm and the breadth remains the same, express the new area.",
+          "options": [
+            "New Area = (l + 3) × b",
+            "New Area = (l + 2) × b",
+            "New Area = (b + 2) + l",
+            "New Area = (l + 4) × b"
+          ],
+          "ans": "New Area = (l + 2) × b",
+          "level": "Hard"
+        },
+        {
+          "id": 49,
+          "que": "3a + 2b, if a = 4 and b = 3",
+          "options": ["17", "18", "20", "19"],
+          "ans": "18",
+          "level": "Easy"
+        },
+        {
+          "id": 50,
+          "que": "The coefficient of x in 3x² + 2x - 1",
+          "options": ["3", "5", "4", "7"],
+          "ans": "3",
+          "level": "Midium"
+        }
+      ]
+    },
+    {
+      "geometry": [
+        {
+          "id": 51,
+          "que": "The perimeter of a rectangle is 30 cm. If the length is 8 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "7 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 52,
+          "que": "The perimeter of a square is 20 cm. Find the length of each side.",
+          "options": ["5 cm", "4 cm", "6 cm", "7 cm"],
+          "ans": "5 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 53,
+          "que": "The area of a square is 64 cm². Find the length of each side.",
+          "options": ["8 cm", "6 cm", "7 cm", "5 cm"],
+          "ans": "8 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 54,
+          "que": "The area of a rectangle is 48 cm². If the length is 8 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Medium"
+        },
+        {
+          "id": 55,
+          "que": "The area of a square is 100 cm². Find the length of each side.",
+          "options": ["10 cm", "11 cm", "12 cm", "9 cm"],
+          "ans": "10 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 56,
+          "que": "The area of a rectangle is 60 cm². If the length is 10 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Medium"
+        },
+        {
+          "id": 57,
+          "que": "The perimeter of a rectangle is 24 cm.If the length is 6cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Hard"
+        },
+        {
+          "id": 58,
+          "que": "The perimeter of a square is 16 cm. Find the length of each side.",
+          "options": ["4 cm", "5 cm", "6 cm", "7 cm"],
+          "ans": "4 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 59,
+          "que": "The area of a square is 49 cm². Find the length of each side.",
+          "options": ["7 cm", "6 cm", "8 cm", "5 cm"],
+          "ans": "7 cm",
+          "level": "Hard"
+        },
+        {
+          "id": 60,
+          "que": "The area of a rectangle is 35 cm². If the length is 7 cm, find the breadth.",
+          "options": ["5 cm", "6 cm", "7 cm", "8 cm"],
+          "ans": "5 cm",
+          "level": "Hard"
+        }
+      ]
+    }
+  ],
+  "grade10": [
+    {
+      "algebra": [
+        {
+          "id": 61,
+          "que": "Simplify the expression: 3x + 5 + 2x - 1",
+          "options": [
+            "(3x + 4x) + (5 - 2) = 5x + 4",
+            "(3x + 2x) + (5 - 1) = 4x + 2",
+            "(3x + 2x) + (5 - 1) = 5x + 4",
+            "(3x + 2x) + (5 - 1) = 5 + 4x"
+          ],
+          "ans": "(3x + 2x) + (5 - 1) = 5x + 4",
+          "level": "Midium"
+        },
+        {
+          "id": 62,
+          "que": "Simplify the expression: 2x + 3(x + 4)",
+          "options": [
+            "2x + 3x + 4",
+            "2x + 3x + 12",
+            "2x + 3x + 7",
+            "2x + 3x + 8"
+          ],
+          "ans": "2x + 3x + 12",
+          "level": "Midium"
+        },
+        {
+          "id": 63,
+          "que": "Simplify the expression: 3(x - 2) + 4(x + 3)",
+          "options": [
+            "3x - 6 + 4x + 12",
+            "3x - 6 + 4x + 3",
+            "3x - 6 + 4x + 4",
+            "3x - 6 + 4x + 6"
+          ],
+          "ans": "3x - 6 + 4x + 12",
+          "level": "Easy"
+        },
+        {
+          "id": 64,
+          "que": "Simplify the expression: 2(x - 3) - 3(x + 2)",
+          "options": [
+            "2x - 6 - 3x - 6",
+            "2x - 6 - 3x - 3",
+            "2x - 6 - 3x- 2",
+            "2x - 6 - 3x - 4"
+          ],
+          "ans": "2x - 6 - 3x - 6",
+          "level": "Midium"
+        },
+        {
+          "id": 65,
+          "que": "If x = 2, find the value of 4x + 1.",
+          "options": ["8", "7", "6", "9"],
+          "ans": "9",
+          "level": "Easy"
+        },
+        {
+          "id": 66,
+          "que": "Solve the equation: 2x + 5 = 11",
+          "options": ["x = 3", "x = 5", "x = 4", "x = 2"],
+          "ans": "x = 3",
+          "level": "Easy"
+        },
+        {
+          "id": 67,
+          "que": ": If Rita earns ₹25 per day and spends ₹15 daily, how many days does she need to save ₹100?",
+          "options": ["10", "12", "13", "11"],
+          "ans": "10",
+          "level": "Hard"
+        },
+        {
+          "id": 68,
+          "que": "The area of a rectangle is represented by l × b. If the length is increased by 2 cm and the breadth remains the same, express the new area.",
+          "options": [
+            "New Area = (l + 3) × b",
+            "New Area = (l + 2) × b",
+            "New Area = (b + 2) + l",
+            "New Area = (l + 4) × b"
+          ],
+          "ans": "New Area = (l + 2) × b",
+          "level": "Hard"
+        },
+        {
+          "id": 69,
+          "que": "3a + 2b, if a = 4 and b = 3",
+          "options": ["17", "18", "20", "19"],
+          "ans": "18",
+          "level": "Easy"
+        },
+        {
+          "id": 70,
+          "que": "The coefficient of x in 3x² + 2x - 1",
+          "options": ["3", "5", "4", "7"],
+          "ans": "3",
+          "level": "Midium"
+        }
+      ]
+    },
+    {
+      "geometry": [
+        {
+          "id": 71,
+          "que": "The perimeter of a rectangle is 30 cm. If the length is 8 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "7 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 72,
+          "que": "The perimeter of a square is 20 cm. Find the length of each side.",
+          "options": ["5 cm", "4 cm", "6 cm", "7 cm"],
+          "ans": "5 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 73,
+          "que": "The area of a square is 64 cm². Find the length of each side.",
+          "options": ["8 cm", "6 cm", "7 cm", "5 cm"],
+          "ans": "8 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 74,
+          "que": "The area of a rectangle is 48 cm². If the length is 8 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Medium"
+        },
+        {
+          "id": 75,
+          "que": "The area of a square is 100 cm². Find the length of each side.",
+          "options": ["10 cm", "11 cm", "12 cm", "9 cm"],
+          "ans": "10 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 76,
+          "que": "The area of a rectangle is 60 cm². If the length is 10 cm, find the breadth.",
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Medium"
+        },
+        {
+          "id": 77,
+          "que": "The perimeter of a rectangle is 24 cm. Ifthe length is 6cm, find the breadth.",
+
+          "options": ["6 cm", "7 cm", "8 cm", "5 cm"],
+          "ans": "6 cm",
+          "level": "Hard"
+        },
+        {
+          "id": 78,
+          "que": "The perimeter of a square is 16 cm. Find the length of each side.",
+          "options": ["4 cm", "5 cm", "6 cm", "7 cm"],
+          "ans": "4 cm",
+          "level": "Easy"
+        },
+        {
+          "id": 79,
+          "que": "The area of a square is 49 cm². Find the length of each side.",
+          "options": ["7 cm", "6 cm", "8 cm", "5 cm"],
+          "ans": "7 cm",
+          "level": "Hard"
+        },
+        {
+          "id": 80,
+          "que": "The area of a rectangle is 35 cm². If the length is 7 cm, find the breadth.",
+          "options": ["5 cm", "6 cm", "7 cm", "8 cm"],
+          "ans": "5 cm",
+          "level": "Hard"
+        }
+      ]
+    }
+  ]
+}

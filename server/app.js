@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 const session = require("express-session");
 const passport = require("passport");
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
-const Users = require("./Model/Schema");
+const {Users} = require("./Model/Schema");
 
 const app = express();
 
