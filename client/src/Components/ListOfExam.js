@@ -34,7 +34,7 @@ const ListOfExam=()=> {
             <TableCell>Exam Name</TableCell>
             <TableCell align="right">Date</TableCell>
             <TableCell align="right">Tag</TableCell>
-            <TableCell align="right">Level</TableCell>
+            <TableCell align="right">Score</TableCell>
             <TableCell align="right">Result</TableCell>
           </TableRow>
         </TableHead>
