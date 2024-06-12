@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -23,12 +23,21 @@ const Header = () => {
   const isLoggedIn = useSelector((state) => state.userReducers.isLoggedIn);
   const userInfo = useSelector((state) => state.userReducers.userLoginInfo);
 
-  const isAllDataPresent=userInfo?.phoneNo && userInfo?.grade && userInfo?.school && userInfo?.address;
-
+  const [isAllDataPresent, setIsAllDataPresent] = useState(true);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [openModal, setOpenModal] = useState(false);
 
+  useEffect(() => {
+    if (userInfo) {
+      setIsAllDataPresent(
+        userInfo?.phoneNo &&
+          userInfo?.grade &&
+          userInfo?.school &&
+          userInfo?.address
+      );
+    }
+  }, [userInfo]);
   const handleOpen = (event) => {
     event.stopPropagation();
     setOpenModal(true);
@@ -91,49 +100,49 @@ const Header = () => {
             Brainiac
           </Typography>
           {isLoggedIn && (
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <Link
-                      style={{ color: "black", textDecoration: "none" }}
-                      to={getLink(page)}
-                    >
-                      {page}
-                    </Link>
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">
+                      <Link
+                        style={{ color: "black", textDecoration: "none" }}
+                        to={getLink(page)}
+                      >
+                        {page}
+                      </Link>
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
           )}
           <CalculateIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
@@ -155,22 +164,22 @@ const Header = () => {
             Brainiac
           </Typography>
           {isLoggedIn && (
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block"}}
-              >
-                <Link
-                  style={{ color: "white", textDecoration: "none" }}
-                  to={getLink(page)}
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page}
-                </Link>
-              </Button>
-            ))}
-          </Box>
+                  <Link
+                    style={{ color: "white", textDecoration: "none" }}
+                    to={getLink(page)}
+                  >
+                    {page}
+                  </Link>
+                </Button>
+              ))}
+            </Box>
           )}
 
           <Box sx={{ flexGrow: 0 }}>
@@ -256,7 +265,8 @@ const Header = () => {
             padding: "1px",
           }}
         >
-          Please complete your profile to get the best experience. User name ={'>'} Profile
+          Please complete your profile to get the best experience. User name =
+          {">"} Profile
         </Typography>
       )}
     </AppBar>

@@ -19,6 +19,7 @@ import { useSelector } from "react-redux";
 import { useStyles } from "../Utils/style";
 import axios from "axios";
 import CloseIcon from "@mui/icons-material/Close";
+import { useDispatch } from "react-redux";
 
 const style = {
   position: "absolute",
@@ -34,15 +35,16 @@ const style = {
 
 export const Profile = ({ openModal, handleClose }) => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.userReducers.userLoginInfo);
+
   const [state, setState] = useState({
-    name: userInfo.name,
-    email: userInfo.email,
-    address: userInfo.address,
-    phoneNo: userInfo.phoneNo,
-    school: userInfo.school,
-    grade: userInfo.grade,
+    name: userInfo?.name,
+    email: userInfo?.email,
+    address: userInfo?.address,
+    phoneNo: userInfo?.phoneNo,
+    school: userInfo?.school,
+    grade: userInfo?.grade,
   });
   const [updateErr, setUpdateErr] = useState("");
   const [success, setSuccess] = useState("");
@@ -127,6 +129,21 @@ export const Profile = ({ openModal, handleClose }) => {
         setSuccess("Profile Updated Successfully");
         setUpdateErr("");
       }
+
+      const user = {
+        id: userInfo.id,
+        name: userInfo.name,
+        email: userInfo.email,
+        address: address,
+        phoneNo: phoneNo,
+        school: school,
+        grade: grade,
+      };
+      sessionStorage.setItem("user-login", JSON.stringify(user));
+      dispatch({ type: "USER_LOGIN", payload: user });
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     } catch (error) {
       setUpdateErr("Failed to update profile");
       setSuccess("");
