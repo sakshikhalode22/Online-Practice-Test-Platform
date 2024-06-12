@@ -15,7 +15,6 @@ const ListOfExam = ({ list }) => {
           <TableRow sx={{ backgroundColor: "#66bb6a" }}>
             <TableCell>Exam Name</TableCell>
             <TableCell align="right">Date</TableCell>
-            <TableCell align="right">Tag</TableCell>
             <TableCell align="right">Score</TableCell>
             <TableCell align="right">Result</TableCell>
           </TableRow>
@@ -31,9 +30,6 @@ const ListOfExam = ({ list }) => {
               </TableCell>
               <TableCell align="right">
                 {new Date(row.examDate).toLocaleDateString()}
-              </TableCell>
-              <TableCell align="right">
-                {row.subject?.charAt(0).toUpperCase() + row.subject?.slice(1)}
               </TableCell>
               <TableCell align="right">{row.score}</TableCell>
               <TableCell align="right">{row.result}</TableCell>

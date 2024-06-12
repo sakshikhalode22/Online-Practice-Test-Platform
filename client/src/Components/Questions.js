@@ -144,7 +144,7 @@ const Questions = () => {
           <Button
             size="small"
             onClick={handleNext}
-            disabled={currentQueId === steps}
+            disabled={currentQueId === steps-1}
           >
             Next
             {theme.direction === "rtl" ? (
