@@ -20,7 +20,11 @@ const Test = () => {
   const [openModal, setOpenModal] = useState(false);
   const [result, setResult] = useState(0);
 
-  const userGrade = "grade" + userInfo.grade;
+  const grade = sessionStorage.getItem("user-login")
+    ? JSON.parse(sessionStorage.getItem("user-login")).grade
+    : userInfo?.grade;
+
+  const userGrade = "grade" + grade;
   const getExamsUrl = `http://localhost:5000/questions/${userGrade}`;
   const isAllDataPresent = isLoggedIn
     ? userInfo?.phoneNo &&
@@ -34,7 +38,7 @@ const Test = () => {
       alert("Please fill all the details in profile page");
       navigate("/dashboard");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAllDataPresent]);
 
   const handleOpen = (event) => {
