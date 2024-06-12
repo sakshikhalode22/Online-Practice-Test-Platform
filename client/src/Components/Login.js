@@ -2,46 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Container, Typography, TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
-
-const useStyles = makeStyles({
-  root: {
-    display: "flex !important",
-    flexDirection: "column",
-    alignItems: "center",
-    marginTop: 10,
-    marginBottom: 20,
-    padding: 10,
-    width: "100%",
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: "lighter",
-    color: "#ac8971",
-    textAlign: "center",
-    fontFamily: "Brush Script MT",
-  },
-
-  textField: {
-    display: "flex",
-    margin: "10px !important",
-  },
-
-  error: {
-    color: "red",
-  },
-  success: {
-    color: "green",
-  },
-});
+import { useStyles } from "../Utils/style";
+import { loginURL } from "../Utils/Api";
 
 const Login = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const loginURL = "http://localhost:5000/login";
 
   const [state, setState] = useState({
     email: "",
@@ -76,9 +44,11 @@ const Login = () => {
     };
     try {
       const response = await axios.post(loginURL, data);
-      console.log(response, response.status);
       if (response.status === 200) {
-        sessionStorage.setItem("user-login", JSON.stringify(response.data.data.user));
+        sessionStorage.setItem(
+          "user-login",
+          JSON.stringify(response.data.data.user)
+        );
         dispatch({ type: "USERLOGEDIN", payload: true });
         dispatch({ type: "USERINFO", payload: response.data.data.user });
         navigate("/dashboard");

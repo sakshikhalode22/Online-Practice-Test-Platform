@@ -16,9 +16,9 @@ import {
   IconButton,
 } from "@mui/material";
 import { useSelector } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
+import { useStyles } from "../Utils/style";
 import axios from "axios";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
@@ -31,38 +31,10 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const useStyles = makeStyles({
-  root: {
-    display: "flex !important",
-    flexDirection: "column",
-    alignItems: "center",
-    marginTop: 10,
-    marginBottom: 20,
-    padding: 10,
-    width: "100%",
-  },
-  title: {
-    fontSize: 25,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
 
-  textField: {
-    display: "flex",
-    margin: "10px !important",
-    width: "100%",
-  },
-
-  error: {
-    color: "red",
-  },
-  success: {
-    color: "green",
-  },
-});
 export const Profile = ({ openModal, handleClose }) => {
   const classes = useStyles();
-  
+
   const userInfo = useSelector((state) => state.userReducers.userLoginInfo);
   const [state, setState] = useState({
     name: userInfo.name,
@@ -72,9 +44,9 @@ export const Profile = ({ openModal, handleClose }) => {
     school: userInfo.school,
     grade: userInfo.grade,
   });
-  const [updateErr,setUpdateErr]=useState("");
-  const [success, setSuccess]=useState("");
-  const updateUrl=`http://localhost:5000/updateuser/${state.email}`
+  const [updateErr, setUpdateErr] = useState("");
+  const [success, setSuccess] = useState("");
+  const updateUrl = `http://localhost:5000/updateuser/${state.email}`;
 
   const [stateErr, setStateErr] = useState({
     address: "",
@@ -83,6 +55,7 @@ export const Profile = ({ openModal, handleClose }) => {
     grade: "",
   });
   const [btnStatus, setBtnStatus] = useState(false);
+
   useEffect(() => {
     if (state.address && state.phoneNo && state.school && state.grade) {
       setBtnStatus(true);
@@ -93,7 +66,6 @@ export const Profile = ({ openModal, handleClose }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name,value)
     setState({
       ...state,
       [name]: value,
@@ -139,7 +111,7 @@ export const Profile = ({ openModal, handleClose }) => {
     }
   };
 
-    const userUpdate = async (e) => {
+  const userUpdate = async (e) => {
     e.preventDefault();
     setUpdateErr("");
     setSuccess("");
@@ -159,35 +131,34 @@ export const Profile = ({ openModal, handleClose }) => {
       setUpdateErr("Failed to update profile");
       setSuccess("");
     }
-    }
-
+  };
 
   return (
     <Modal
-        open={openModal}
-        onClose={handleClose}
-        closeAfterTransition
-        slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-          },
-        }}
-      >
+      open={openModal}
+      onClose={handleClose}
+      closeAfterTransition
+      slots={{ backdrop: Backdrop }}
+      slotProps={{
+        backdrop: {
+          timeout: 500,
+        },
+      }}
+    >
       <Fade in={openModal}>
         <Box sx={style}>
-        <IconButton
-              aria-label="close"
-              onClick={handleClose}
-              sx={{
-                position: 'absolute',
-                right: 8,
-                top: 8,
-                color: (theme) => theme.palette.grey[500],
-              }}
-            >
-              <CloseIcon />
-            </IconButton>
+          <IconButton
+            aria-label="close"
+            onClick={handleClose}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
           <Typography
             id="transition-modal-title"
             variant="h6"
@@ -201,32 +172,32 @@ export const Profile = ({ openModal, handleClose }) => {
 
           <form>
             <Container className={classes.root}>
-                {updateErr && (
-                    <Typography
-                    className={classes.error}
-                    sx={{
-                        marginBottom: 2,
-                        fontSize: "0.8 rem",
-                        lineHeight: "1.5",
-                        fontWeight: "200",
-                    }}
-                    >
-                    {updateErr}
-                    </Typography>
-                )}
-                {success && (
-                    <Typography
-                    className={classes.success}
-                    sx={{
-                        marginBottom: 2,
-                        fontSize: "0.8 rem",
-                        lineHeight: "1.5",
-                        fontWeight: "200",
-                    }}
-                    >
-                    {success}
-                    </Typography>
-                )}
+              {updateErr && (
+                <Typography
+                  className={classes.error}
+                  sx={{
+                    marginBottom: 2,
+                    fontSize: "0.5 rem",
+                    lineHeight: "1",
+                    fontWeight: "150",
+                  }}
+                >
+                  {updateErr}
+                </Typography>
+              )}
+              {success && (
+                <Typography
+                  className={classes.success}
+                  sx={{
+                    marginBottom: 2,
+                    fontSize: "0.5 rem",
+                    lineHeight: "1",
+                    fontWeight: "150",
+                  }}
+                >
+                  {success}
+                </Typography>
+              )}
 
               <TextField
                 className={classes.textField}
@@ -269,6 +240,20 @@ export const Profile = ({ openModal, handleClose }) => {
                 }}
                 required
               />
+              {/* error */}
+              {stateErr.address && (
+                <Typography
+                  className={classes.error}
+                  sx={{
+                    marginBottom: 2,
+                    fontSize: "0.5 rem",
+                    lineHeight: "1",
+                    fontWeight: "150",
+                  }}
+                >
+                  {stateErr.address}
+                </Typography>
+              )}
               <TextField
                 className={classes.textField}
                 label="Phone Number"
@@ -282,6 +267,20 @@ export const Profile = ({ openModal, handleClose }) => {
                 }}
                 required
               />
+              {/* error */}
+              {stateErr.phoneNo && (
+                <Typography
+                  className={classes.error}
+                  sx={{
+                    marginBottom: 2,
+                    fontSize: "0.5 rem",
+                    lineHeight: "1",
+                    fontWeight: "150",
+                  }}
+                >
+                  {stateErr.phoneNo}
+                </Typography>
+              )}
               <TextField
                 className={classes.textField}
                 label="School"
@@ -295,18 +294,70 @@ export const Profile = ({ openModal, handleClose }) => {
                 }}
                 required
               />
+              {/* error */}
+              {stateErr.school && (
+                <Typography
+                  className={classes.error}
+                  sx={{
+                    marginBottom: 2,
+                    fontSize: "0.5 rem",
+                    lineHeight: "1",
+                    fontWeight: "150",
+                  }}
+                >
+                  {stateErr.school}
+                </Typography>
+              )}
               <FormControl>
                 <FormLabel>Grade</FormLabel>
-                <RadioGroup defaultValue={state.grade} name="grade" row
-                onChange={(e) => {
-                  handleChange(e);
-                }}>
-                  <FormControlLabel name="grade" value={7} control={<Radio />} label="7" />
-                  <FormControlLabel name="grade" value={8} control={<Radio />} label="8" />
-                  <FormControlLabel name="grade" value={9} control={<Radio />} label="9" />
-                  <FormControlLabel name="grade" value={10} control={<Radio />} label="10" />
+                <RadioGroup
+                  defaultValue={state.grade}
+                  name="grade"
+                  row
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                >
+                  <FormControlLabel
+                    name="grade"
+                    value={7}
+                    control={<Radio />}
+                    label="7"
+                  />
+                  <FormControlLabel
+                    name="grade"
+                    value={8}
+                    control={<Radio />}
+                    label="8"
+                  />
+                  <FormControlLabel
+                    name="grade"
+                    value={9}
+                    control={<Radio />}
+                    label="9"
+                  />
+                  <FormControlLabel
+                    name="grade"
+                    value={10}
+                    control={<Radio />}
+                    label="10"
+                  />
                 </RadioGroup>
               </FormControl>
+              {/* error */}
+              {stateErr.grade && (
+                <Typography
+                  className={classes.error}
+                  sx={{
+                    marginBottom: 2,
+                    fontSize: "0.5 rem",
+                    lineHeight: "1",
+                    fontWeight: "150",
+                  }}
+                >
+                  {stateErr.grade}
+                </Typography>
+              )}
               <Button
                 variant="outlined"
                 color="black"

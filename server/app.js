@@ -52,7 +52,6 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
       try {
         let user = await Users.findOne({ id: profile.id });
-        console.log(user);
         if (!user) {
           user = new Users({
             id: profile.id,

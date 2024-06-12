@@ -1,5 +1,4 @@
 exports.ValidateName = function (name) {
-  console.log(name.length);
   if (name.length !== 0 && name.length >= 3) {
     return true;
   }
@@ -7,7 +6,6 @@ exports.ValidateName = function (name) {
 };
 
 exports.ValidateEmail = function (email) {
-  // console.log(email.length)
   if (
     email.length !== 0 &&
     !email.match("/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/")
@@ -18,7 +16,6 @@ exports.ValidateEmail = function (email) {
 };
 
 exports.ValidatePassword = function (password) {
-  // console.log(password.length)
   if (password.length !== 0 && (password.length > 8 || password.length < 12)) {
     return true;
   }
@@ -34,7 +31,6 @@ exports.ValidatePhone = function (phone) {
 };
 
 exports.ValidateAddress = function (address) {
-  console.log(address.length);
   if (address.length !== 0) {
     return true;
   }

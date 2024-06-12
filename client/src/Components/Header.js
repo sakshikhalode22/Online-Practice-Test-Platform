@@ -23,18 +23,18 @@ const Header = () => {
   const isLoggedIn = useSelector((state) => state.userReducers.isLoggedIn);
   const userInfo = useSelector((state) => state.userReducers.userLoginInfo);
 
+  const isAllDataPresent=userInfo?.phoneNo && userInfo?.grade && userInfo?.school && userInfo?.address;
+
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [openModal, setOpenModal] = useState(false);
 
   const handleOpen = (event) => {
     event.stopPropagation();
-    console.log("open");
     setOpenModal(true);
   };
   const handleClose = (event) => {
     event.stopPropagation();
-    console.log("close");
     setOpenModal(false);
   };
 
@@ -66,6 +66,7 @@ const Header = () => {
     sessionStorage.removeItem("user-login");
     window.location.reload();
   };
+
   return (
     <AppBar color="success" position="fixed">
       <Container maxWidth="xl">
@@ -89,7 +90,7 @@ const Header = () => {
           >
             Brainiac
           </Typography>
-
+          {isLoggedIn && (
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -133,6 +134,7 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
+          )}
           <CalculateIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -152,12 +154,13 @@ const Header = () => {
           >
             Brainiac
           </Typography>
+          {isLoggedIn && (
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "white", display: "block"}}
               >
                 <Link
                   style={{ color: "white", textDecoration: "none" }}
@@ -168,6 +171,7 @@ const Header = () => {
               </Button>
             ))}
           </Box>
+          )}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -193,7 +197,6 @@ const Header = () => {
             <Menu
               sx={{
                 mt: "50px",
-                // increase width
                 "& .MuiMenu-paper": {
                   width: "130px",
                   borderRadius: "10px",
@@ -242,6 +245,20 @@ const Header = () => {
           </Box>
         </Toolbar>
       </Container>
+      {/* create rotating note is isAllDataprsent is false*/}
+      {userInfo && !isAllDataPresent && (
+        <Typography
+          variant="p"
+          sx={{
+            textAlign: "center",
+            backgroundColor: "red",
+            color: "white",
+            padding: "1px",
+          }}
+        >
+          Please complete your profile to get the best experience. User name ={'>'} Profile
+        </Typography>
+      )}
     </AppBar>
   );
 };
