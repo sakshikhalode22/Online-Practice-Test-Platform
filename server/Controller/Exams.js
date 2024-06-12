@@ -10,7 +10,6 @@ exports.addExam = async (req, res) => {
       examName: examName,
       examDate: new Date(),
       userId: req.body.userId,
-      subject: req.body.subject,
       score: req.body.score,
       result: req.body.result,
     });

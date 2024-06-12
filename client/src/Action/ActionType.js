@@ -1,3 +1,4 @@
 export const GOOGLELOGIN='GOOGLELOGIN';
 export const USERLOGEDIN='USERLOGEDIN'; 
 export const USERINFO='USERINFO';
+export const USEREXAM='USEREXAM';

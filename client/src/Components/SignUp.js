@@ -8,47 +8,16 @@ import {
   IconButton,
 } from "@mui/material";
 import axios from "axios";
-import { makeStyles } from "@material-ui/core/styles";
+import { useStyles } from "../Utils/style";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
-
-const useStyles = makeStyles({
-  root: {
-    display: "flex !important",
-    flexDirection: "column",
-    alignItems: "center",
-    marginTop: 10,
-    marginBottom: 20,
-    padding: 10,
-    width: "100%",
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: "lighter",
-    color: "#ac8971",
-    textAlign: "center",
-    fontFamily: "Brush Script MT",
-  },
-
-  textField: {
-    display: "flex",
-    margin: "10px !important",
-  },
-
-  error: {
-    color: "red",
-  },
-  success: {
-    color: "green",
-  },
-});
+import { signUpUrl } from "../Utils/Api";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const classes = useStyles();
-
-  const signUpUrl = "http://localhost:5000/addusers";
-
+  const navigate=useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [rshowPassword, setRShowPassword] = useState(false);
 
@@ -168,12 +137,18 @@ const SignUp = () => {
     };
     try {
       const response = await axios.post(signUpUrl, data);
-      console.log("res", response, response.status);
       if (response.status === 201) {
         setSuccess("User registered successfully");
+        setSignUpErr("")
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+
+        
       }
     } catch (error) {
       setSignUpErr("Email Id is already registered");
+      setSuccess("")
     }
   };
 

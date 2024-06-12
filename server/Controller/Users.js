@@ -58,7 +58,6 @@ exports.addUser = async (req, res) => {
 exports.getAllUsers = async (req, res) => {
   try {
     const user = await Users.find({}, { _id: 0, __v: 0 });
-    // console.log(user)
     if (user.length > 0) {
       res.status(200).json({
         status: "success",
@@ -114,7 +113,6 @@ exports.login = async (req, res) => {
 // update userdetails name, address, phoneNo,grade,school
 exports.updateUser = async (req, res) => {
   try {
-    console.log(req.body)
     const user = await Users.findOneAndUpdate(
       { email: req.params.email },
       {
